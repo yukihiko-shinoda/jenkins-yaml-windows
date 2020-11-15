@@ -1,0 +1,43 @@
+plugins:
+  sites:
+    - id: "default"
+      url: "http://updates.jenkins-ci.org/update-center.json"
+jenkins:
+  agentProtocols:
+    - "JNLP4-connect"
+    - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  mode: NORMAL
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  quietPeriod: 5
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+        - id: ${JENKINS_USER_ID:-administrator}
+  slaveAgentPort: -1
+  views:
+    - all:
+        name: "all"
+tool:
+  git:
+    installations:
+      - home: "git.exe"
+        name: "Default"
+  jdk:
+    defaultProperties:
+      - installSource:
+          installers:
+            - jdkInstaller:
+                acceptLicense: false
