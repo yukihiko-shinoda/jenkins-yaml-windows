@@ -30,6 +30,12 @@ jenkins:
   views:
     - all:
         name: "all"
+unclassified:
+  location:
+    url: "http://localhost:58080/"
+  shell:
+    # ↓ To execute shell on Windows
+    shell: "C:\\Program Files\\Git\\bin\\bash.exe"
 tool:
   git:
     installations:
